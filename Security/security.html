@@ -3,15 +3,15 @@
         <nav class="navbar-default">
             <h1>Digital Training: {{title}}</h1>
         </nav><!--end of nav-->
-        <div class="row">
+        <div class="row" ng-repeat="q in securityQuestions">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <h4>Why did the turtle cross the road?</h4>
+                <h4>{{q.question}}</h4>
             </div><!--end of div containing main question-->
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"> 
-                <div class="row" data-toggle="tooltip" title="Choose an answer">
+                <div class="row" ng-repeat="a in q.options" data-toggle="tooltip" title="Choose an answer">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">             
                         <label><input type="radio" value="true">    
-                            To get to the other side
+                            {{a.answer}}
                         </label> 
                     </div>                
                 </div><!--end of row contining secondary ng-repeat for answers-->
@@ -20,5 +20,11 @@
                 <button type="button" class="btn btn-lg">Done</button>
             </div><!--end of div with Done button-->    
         </div><!--end of div containing main ng-repeat -->
+        <br>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <button type="button" class="btn btn-lg">Finish Test</button>            
+            </div>
+        </div>
     </div><!--end of container-fluid-->
 </div><!--end of button Page-->

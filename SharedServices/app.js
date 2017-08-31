@@ -12,9 +12,8 @@ myApp.config(['$stateProvider', '$urlRouterProvider',function($stateProvider, $u
     
         .state('security', {
             url:'/security',
-            templateUrl: 'Security/security.html'
-    //    ,
-    //        controller: "navController"
+            templateUrl: 'Security/security.html',
+            controller: "securityController"
         })
        
     
