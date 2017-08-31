@@ -1,0 +1,43 @@
+<html lang="en">
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<link rel="stylesheet" href="libs/bootstrap.min.css">
+<!-- Optional Bootstrap theme -->
+<link rel="stylesheet" href="libs/bootstrap-theme.min.css">
+<script src="libs/bootstrap.min.js"></script>
+<script src="libs/angular.min.js"></script>
+<script src="https://unpkg.com/angular-ui-router/release/angular-ui-router.min.js"></script>    
+
+<!--App.js, link to file containing state, .config, and .run app functions -->     
+<script src="SharedServices/app.js"></script>
+    
+<!--CSS -->     
+<link rel="stylesheet" href="">    
+    
+<!--Services -->    
+<script src="Security/securityService.js"></script>
+
+<!--Navigation files -->    
+<script src=""></script>
+<script src=""></script>  
+    
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/> 
+<meta name="viewport" content="width=device-width, initial-scale=1 minimum-scale=1, maximum-scale=1" charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=11" />    
+<title>Digital Training</title>
+</head>
+    
+<!--sets the HTML document to a angularJS app call myApp -->
+<body ng-app="DT">
+  
+<div class="container-fluid">
+    <div class="row">
+        <!-- Start of page viewport-->
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div ui-view></div>
+        </div><!--End of page viewport, center column -->
+        
+    </div><!--end of row that contains the body -->
+</div><!--end of container of the row that contains the body -->
+</body>    
+</html>

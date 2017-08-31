@@ -4,17 +4,18 @@ var myApp = angular.module('DT', ['ui.router']);
 // A .config function is used to provide 'state' and url routing for the app thru the stateProvider (from ui-router).
 myApp.config(['$stateProvider', '$urlRouterProvider',function($stateProvider, $urlRouterProvider, $state) {
     /*
-    //If no route or link is select, the app redirects to the nav page
-    $urlRouterProvider.otherwise('/nav');
+    //If no route or link is select, the app redirects to the nav page */
+    $urlRouterProvider.otherwise('/security');
 
     $stateProvider
-        //The nav state redirects the user to the nav.html template and navController via the /nav url. 
+        //The security state redirects the user to the security.html template and securityController via the /security url. 
     
-        .state('nav', {
-            url:'/nav',
-            templateUrl: 'nav/nav.html',
-            controller: "navController"
+        .state('security', {
+            url:'/security',
+            templateUrl: 'Security/security.html'
+    //    ,
+    //        controller: "navController"
         })
-    */    
+       
     
 }]);
