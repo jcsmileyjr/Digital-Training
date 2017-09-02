@@ -13,7 +13,7 @@
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                         <div class="radio">
                         <label><input type="radio" ng-Disabled = "q.done" ng-value="a.correct" ng-click="select(a.correct)" name={{q.question}}>
-                            {{a.answer}}{{a.correct}}
+                            {{a.answer}}
                     <span ng-if="a.correct=='true' && showAnswers==true"><i class="fa fa-check" ></i></span>
                     <span ng-show="a.correct=='false' && showAnswers==true"><i class="fa fa-times" aria-hidden="true"></i></span>
                                             
@@ -29,7 +29,7 @@
         <br>
         <div class="row">
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                <button type="button" class="btn btn-lg" ng-click="finish()">Finish Test</button>            
+                <button type="button" class="btn btn-lg" ng-click="finish()" ng-Disabled = "enableButton==false">Finish Test</button>            
             </div>
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                 <h4>{{score | number}}% </h4>

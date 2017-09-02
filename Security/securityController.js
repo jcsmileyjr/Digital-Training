@@ -9,6 +9,8 @@ myApp.controller('securityController',  function($scope, Security, Score){
     //sets a global finish variable used when the finish button is press to show all correct and incorrect answers.
     $scope.showAnswers = false;
     
+    $scope.enableButton = false;
+    
     //get the security questions array from the Security Service
     $scope.securityQuestions = Security.getSecurityQuestions();
    
@@ -27,12 +29,21 @@ myApp.controller('securityController',  function($scope, Security, Score){
             
             //Adds one to the current score count
             Score.addScore();
+            
+            //Add one to questionDone taly
+            Score.tallyQuestionDone();
         }// end of if statment for when answer is true
+        if($scope.correct==="false"){
+            //Add one to questionDone taly
+            Score.tallyQuestionDone();
+        }
         
+       $scope.enableButton = Score.enableButton($scope.securityQuestions.length);
         
     }//end of done function
     
     $scope.finish = function(){
+        
         //gets the current count and the length of the array to determine the score.
         $scope.score = Score.getScore($scope.securityQuestions.length);
         
