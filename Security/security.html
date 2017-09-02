@@ -9,10 +9,12 @@
             </div><!--end of div containing main question-->
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"> 
                 <div class="row" ng-repeat="a in q.options" data-toggle="tooltip" title="Choose an answer">
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">             
-                        <label><input type="radio" ng-Disabled = "q.done">    
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="radio">
+                        <label><input type="radio" ng-Disabled = "q.done" ng-value="a.correct" ng-click="select(a.correct)" name={{q.question}}>
                             {{a.answer}}
-                        </label> 
+                        </label>
+                        </div>
                     </div>                
                 </div><!--end of row contining secondary ng-repeat for answers-->
             </div><!--end of div containing answers--> 
@@ -22,8 +24,11 @@
         </div><!--end of div containing main ng-repeat -->
         <br>
         <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <button type="button" class="btn btn-lg">Finish Test</button>            
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <button type="button" class="btn btn-lg" ng-click="finish()">Finish Test</button>            
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <h4>{{score | number}}% </h4>
             </div>
         </div>
     </div><!--end of container-fluid-->
