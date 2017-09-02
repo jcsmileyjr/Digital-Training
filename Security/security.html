@@ -6,13 +6,17 @@
         <div class="row" ng-repeat="q in securityQuestions">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <h4>{{q.question}}</h4>
+                                    
             </div><!--end of div containing main question-->
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"> 
                 <div class="row" ng-repeat="a in q.options" data-toggle="tooltip" title="Choose an answer">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                         <div class="radio">
                         <label><input type="radio" ng-Disabled = "q.done" ng-value="a.correct" ng-click="select(a.correct)" name={{q.question}}>
-                            {{a.answer}}
+                            {{a.answer}}{{a.correct}}
+                    <span ng-if="a.correct=='true' && showAnswers==true"><i class="fa fa-check" ></i></span>
+                    <span ng-show="a.correct=='false' && showAnswers==true"><i class="fa fa-times" aria-hidden="true"></i></span>
+                                            
                         </label>
                         </div>
                     </div>                

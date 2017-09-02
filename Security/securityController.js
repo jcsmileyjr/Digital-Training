@@ -6,6 +6,9 @@ myApp.controller('securityController',  function($scope, Security, Score){
     //sets the score at the start of the application
     $scope.score = 0;
     
+    //sets a global finish variable used when the finish button is press to show all correct and incorrect answers.
+    $scope.showAnswers = false;
+    
     //get the security questions array from the Security Service
     $scope.securityQuestions = Security.getSecurityQuestions();
    
@@ -32,6 +35,9 @@ myApp.controller('securityController',  function($scope, Security, Score){
     $scope.finish = function(){
         //gets the current count and the length of the array to determine the score.
         $scope.score = Score.getScore($scope.securityQuestions.length);
+        
+        //Show all answers as correct or incorrect
+        $scope.showAnswers = true;
         
     }// end of finish function
     
