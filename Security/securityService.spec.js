@@ -26,7 +26,7 @@ describe("Security Service:", function() {
         }); 
         
         it('retrieve an question', function(){
-            expect(securityQuestions[0].question).toEqual('first question');
+            expect(securityQuestions[0].question).toEqual('What department can the Security Director NOT be responsible for?');
         });
         
         it('retrieve a array of three answers', function(){
@@ -39,6 +39,10 @@ describe("Security Service:", function() {
         
         it('retrieve a Boolean value from the fail property of the questoin object ', function(){
             expect(securityQuestions[0].fail).toMatch(/true|false/);            
-        });        
+        });
+            
+        it('retrieve a Boolean value from the done property of the questoin object ', function(){
+            expect(securityQuestions[0].done).toMatch(/true|false/);            
+        });             
     });
 });/*End of Slot Machine service Describe block*/
