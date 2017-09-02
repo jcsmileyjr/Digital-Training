@@ -6,6 +6,11 @@ myApp.controller('securityController',  function($scope, Security){
     //get the security questions array from the Security Service
     $scope.securityQuestions = Security.getSecurityQuestions();
     
+    //function that support the "done" botton for each qustion
+    $scope.done = function(index){
+        $scope.securityQuestions[index].done = true;
+    }
+    
     /*
     //redirect to nav.html
     $scope.confirm = function(){

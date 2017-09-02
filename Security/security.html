@@ -10,14 +10,14 @@
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"> 
                 <div class="row" ng-repeat="a in q.options" data-toggle="tooltip" title="Choose an answer">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">             
-                        <label><input type="radio" value="true">    
+                        <label><input type="radio" ng-Disabled = "q.done">    
                             {{a.answer}}
                         </label> 
                     </div>                
                 </div><!--end of row contining secondary ng-repeat for answers-->
             </div><!--end of div containing answers--> 
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <button type="button" class="btn btn-lg">Done</button>
+                <button type="button" class="btn btn-lg" ng-Disabled = "q.done" ng-click="done($index)">Done</button>
             </div><!--end of div with Done button-->    
         </div><!--end of div containing main ng-repeat -->
         <br>
