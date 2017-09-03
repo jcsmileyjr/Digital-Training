@@ -9,6 +9,7 @@ myApp.controller('securityController',  function($scope, Security, Score){
     //sets a global finish variable used when the finish button is press to show all correct and incorrect answers.
     $scope.showAnswers = false;
     
+    //sets the enableButton variable to false to disable Finish button
     $scope.enableButton = false;
     
     //get the security questions array from the Security Service
@@ -38,10 +39,12 @@ myApp.controller('securityController',  function($scope, Security, Score){
             Score.tallyQuestionDone();
         }
         
-       $scope.enableButton = Score.enableButton($scope.securityQuestions.length);
+        //checks to see if all questions have been answered by using the Score enableButton function to count each time a question is anaswer. 
+        $scope.enableButton = Score.enableButton($scope.securityQuestions.length);
         
     }//end of done function
     
+    //function for user to press when finish answering all questions and to show score
     $scope.finish = function(){
         
         //gets the current count and the length of the array to determine the score.

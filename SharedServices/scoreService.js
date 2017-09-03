@@ -22,8 +22,7 @@ myApp.factory('Score', [ function (Security) {
         
         //Add one to the enableFinishButton.questionsDone 
         tallyQuestionDone: function(){
-            enableFinishButton.questionsDone ++;
-console.log("count " + enableFinishButton.questionsDone);            
+            enableFinishButton.questionsDone ++;            
         }, 
         
         //returns true if count is equal to length of questions array

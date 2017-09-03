@@ -38,7 +38,7 @@ describe("Security Service:", function() {
         });
         
         it('retrieve a Boolean value from the fail property of the questoin object ', function(){
-            expect(securityQuestions[0].fail).toMatch(/true|false/);            
+            expect(securityQuestions[0].finish).toMatch(/true|false/);            
         });
             
         it('retrieve a Boolean value from the done property of the questoin object ', function(){

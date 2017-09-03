@@ -1,0 +1,33 @@
+.main {
+    font-size: 170%;
+    color: navy;
+}
+
+.radioButtonSize {
+    width: 2.3vh;
+    height: 2.3vh;
+}
+
+.centerAlign {
+    text-align: center;
+}
+
+.checkMark{
+    color: green;
+}
+
+.incorrectAnswer {
+    color: red;
+}
+
+.doneButton {
+    background-color: green;
+    color: black;
+    font-weight: bolder;
+}
+
+.finishButton {
+    background-color: navy;
+    color: white;
+    font-weight: bolder;
+}
