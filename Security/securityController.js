@@ -1,7 +1,7 @@
 myApp.controller('securityController',  function($scope, Security, Score){
     
     //Set the title of the current training page
-    $scope.title = "Security";
+    $scope.title = "Surveillance Test";
     
     //sets the score at the start of the application
     $scope.score = 0;
@@ -13,7 +13,25 @@ myApp.controller('securityController',  function($scope, Security, Score){
     $scope.enableButton = false;
     
     //get the security questions array from the Security Service
-    $scope.securityQuestions = Security.getSecurityQuestions();
+    $scope.questions = Security.getSurveillanceQuestions();
+    
+    $scope.security = function(){
+           
+        //get the security questions array from the Security Service
+        $scope.questions = Security.getSecurityQuestions();
+        
+        //Set the title of the current training page
+        $scope.title = "Security Test";
+    }
+    
+    $scope.surveillance = function(){
+        
+        //get the surveillance questions array from the surveillance data array in the Security service
+        $scope.questions = Security.getSurveillanceQuestions();
+        
+        //Set the title of the current training page
+        $scope.title = "Surveillance Test";
+    }
    
     //function used in the radio button to save the answer to the selected radio value (eighter true or false based on the current answer correct property)
     $scope.select= function(x){
@@ -23,7 +41,7 @@ myApp.controller('securityController',  function($scope, Security, Score){
     //function that support the "done" botton for each qustion by disabling the current question and updating the score if correct. 
     $scope.done = function(index){
         //sets the current question done property to true when user press done
-        $scope.securityQuestions[index].done = true;   
+        $scope.questions[index].done = true;   
         
         //if the answer is true, then add one to the score
         if($scope.correct==="true"){
@@ -40,7 +58,7 @@ myApp.controller('securityController',  function($scope, Security, Score){
         }
         
         //checks to see if all questions have been answered by using the Score enableButton function to count each time a question is anaswer. 
-        $scope.enableButton = Score.enableButton($scope.securityQuestions.length);
+        $scope.enableButton = Score.enableButton($scope.questions.length);
         
     }//end of done function
     
@@ -48,7 +66,7 @@ myApp.controller('securityController',  function($scope, Security, Score){
     $scope.finish = function(){
         
         //gets the current count and the length of the array to determine the score.
-        $scope.score = Score.getScore($scope.securityQuestions.length);
+        $scope.score = Score.getScore($scope.questions.length);
         
         //Show all answers as correct or incorrect
         $scope.showAnswers = true;
