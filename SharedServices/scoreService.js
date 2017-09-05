@@ -22,15 +22,14 @@ myApp.factory('Score', [ function (Security) {
         
         //Add one to the enableFinishButton.questionsDone 
         tallyQuestionDone: function(){
-            enableFinishButton.questionsDone ++;            
+            enableFinishButton.questionsDone ++;           
         }, 
         
         //returns true if count is equal to length of questions array
         enableButton: function(length){
-            if(enableFinishButton.questionsDone == length){
-            
+            if(enableFinishButton.questionsDone >= length){          
             return true;
-            } else{
+            } else{               
                 return false;
             }
                 
