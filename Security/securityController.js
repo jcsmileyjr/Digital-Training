@@ -25,6 +25,7 @@ myApp.controller('securityController',  function($scope, Security, Score){
             
         //reset starting app's parameters
         $scope.showAnswers = false;
+        $scope.enableButton = false;
         $scope.score = 0;
         $scope.correct = "";
         
@@ -40,6 +41,7 @@ myApp.controller('securityController',  function($scope, Security, Score){
         
         //reset starting app's parameters
         $scope.showAnswers = false;
+        $scope.enableButton = false;
         $scope.score = 0;
         $scope.correct = "";
     }
