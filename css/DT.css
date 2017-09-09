@@ -12,6 +12,14 @@
     text-align: center;
 }
 
+.rightAlign {
+    text-align: right;
+}
+
+.leftAlign {
+    text-align: left;
+}
+
 .checkMark{
     color: green;
 }
@@ -30,4 +38,8 @@
     background-color: navy;
     color: white;
     font-weight: bolder;
+}
+
+.answerWarning {
+    background-color: yellow;
 }

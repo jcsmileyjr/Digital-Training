@@ -22,6 +22,12 @@ myApp.controller('securityController',  function($scope, Security, Score){
         
         //Set the title of the current training page
         $scope.title = "Security Test";
+            
+        //reset starting app's parameters
+        $scope.showAnswers = false;
+        $scope.score = 0;
+        $scope.correct = "";
+        
     }
     
     $scope.surveillance = function(){
@@ -31,6 +37,11 @@ myApp.controller('securityController',  function($scope, Security, Score){
         
         //Set the title of the current training page
         $scope.title = "Surveillance Test";
+        
+        //reset starting app's parameters
+        $scope.showAnswers = false;
+        $scope.score = 0;
+        $scope.correct = "";
     }
    
     //function used in the radio button to save the answer to the selected radio value (eighter true or false based on the current answer correct property)
@@ -40,19 +51,21 @@ myApp.controller('securityController',  function($scope, Security, Score){
     
     //function that support the "done" botton for each qustion by disabling the current question and updating the score if correct. 
     $scope.done = function(index){
-        //sets the current question done property to true when user press done
-        $scope.questions[index].done = true;   
         
         //if the answer is true, then add one to the score
         if($scope.correct==="true"){
             
-            //Adds one to the current score count
-            Score.addScore();
+            //Change the current question finish attribute to show user got the question correct.
+            $scope.questions[index].finish = true;          
             
             //Add one to questionDone taly
             Score.tallyQuestionDone();
         }// end of if statment for when answer is true
         if($scope.correct==="false"){
+            
+            //Change the current question finish attribute to show user got the question incorrect.
+            $scope.questions[index].finish = false; 
+            
             //Add one to questionDone taly
             Score.tallyQuestionDone();
         }
@@ -66,11 +79,16 @@ myApp.controller('securityController',  function($scope, Security, Score){
     $scope.finish = function(){
         
         //gets the current count and the length of the array to determine the score.
-        $scope.score = Score.getScore($scope.questions.length);
+        $scope.score = Score.getScore($scope.questions.length, $scope.questions);
         
         //Show all answers as correct or incorrect
         $scope.showAnswers = true;
         
     }// end of finish function
+    
+    //function to restart test
+    $scope.restart = function(){
+        location.reload();
+    }
     
 });//end of buttonController
