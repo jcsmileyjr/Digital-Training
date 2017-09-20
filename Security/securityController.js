@@ -12,6 +12,23 @@ myApp.controller('securityController',  function($scope, Security, Score){
     //sets the enableButton variable to false to disable Finish button
     $scope.enableButton = false;
     
+    //set the showEndOfTest variable link to the ng-show in the center body div to false to show the tests. If set to true, then the tests is hidden and the end of test div is shown. 
+    $scope.showEndOfTest = false;
+    
+    //gets today date to use when user print the score at the end of a test
+    $scope.today = new Date();
+    
+    //get type of test taken to use when user print the score at the end of a test
+    $scope.type = "Surveillance Test";
+    
+    //use to show the "printScore" button once the Finish Button is press
+    $scope.finishButtonPress = false;
+    
+    //function to print the end of the test screen
+    $scope.printScreen = function(){
+        window.print();
+    }
+    
     //get the security questions array from the Security Service
     $scope.questions = Security.getSurveillanceQuestions();
     
@@ -28,6 +45,9 @@ myApp.controller('securityController',  function($scope, Security, Score){
         $scope.enableButton = false;
         $scope.score = 0;
         $scope.correct = "";
+        $scope.showEndOfTest = false;
+        $scope.type = "Security Test";
+        $scope.finishButtonPress = false;
         
     }
     
@@ -44,6 +64,9 @@ myApp.controller('securityController',  function($scope, Security, Score){
         $scope.enableButton = false;
         $scope.score = 0;
         $scope.correct = "";
+        $scope.showEndOfTest = false;
+        $scope.type = "Surveillance Test";
+        $scope.finishButtonPress = false;
     }
    
     //function used in the radio button to save the answer to the selected radio value (eighter true or false based on the current answer correct property)
@@ -85,12 +108,18 @@ myApp.controller('securityController',  function($scope, Security, Score){
         
         //Show all answers as correct or incorrect
         $scope.showAnswers = true;
+        $scope.finishButtonPress = true;
         
     }// end of finish function
     
     //function to restart test
     $scope.restart = function(){
         location.reload();
+    }
+    
+    //switch main body div/screen to the print score div/screen
+    $scope.printScore = function(){
+        $scope.showEndOfTest = true;
     }
     
 });//end of buttonController

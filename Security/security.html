@@ -19,9 +19,31 @@
             </div>
         </nav><!--end of nav-->
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-3"></div>
-        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-6">
+        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-6" ng-show="showEndOfTest==true">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <label type= "text">Type your Full Name</label>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <input type="text" ng-model="name">
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <label type= "text">Current Rank</label>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <input type="text" ng-model="rank">
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <p>{{name}}, {{rank}}, made a {{score | number}}% on the {{type}} on {{ today | date }} </p>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 centerAlign">
+                <button type="button" class="btn btn-lg finishButton" ng-click="printScreen()">Print Screen</button>            
+            </div>            
+            
+        </div>
+        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-6" ng-show="showEndOfTest==false">
             <h1 class="centerAlign">{{title}}</h1>
             <p class="answerWarning">You must click the "Done" button to confirm your answer's choice</p>
+            <p class="answerWarning">If you change your answer,you must Re-click the "Done" button</p>
         <div class="row" ng-repeat="q in questions">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <h2>{{$index + 1}}. {{q.question}}</h2>
@@ -45,17 +67,20 @@
         </div><!--end of div containing main ng-repeat -->
         <br>
         <div class="row">
-            <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+            <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3">
                 <button type="button" class="btn btn-lg finishButton" ng-click="finish()" ng-Disabled = "enableButton==false">Finish Test</button>            
             </div>
-            <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+            <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3">
+                <button type="button" class="btn btn-lg finishButton" ng-click="printScore()" ng-Disabled = "enableButton==false" ng-show="finishButtonPress==true">Print Score</button>            
+            </div>
+            <div class="col-xs-4 col-sm-3 col-md-3 col-lg-3">
                 <button type="button" class="btn btn-lg finishButton" ng-click="restart()">Re-Start</button>            
-            </div>            
-            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 centerAlign">
+            </div>
+            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 centerAlign">
                 <h3>Score {{score | number}}% </h3>
             </div>
         </div>
-        </div>
+        </div><!--end of main body, center column-->
         
         <div class="col-xs-12 col-sm-2 col-md-2 col-lg-3"></div>
     </div><!--end of container-fluid-->
